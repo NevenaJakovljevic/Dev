@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test page</title>
+  </head>
+  <body class="bg-white">
+   <header class="py-3 px-4 bg-gray-50 border-b shadow-md">
+    <div class="container m-auto px-4 md:px-0 lg:px-0">
+      <div class="row  flex justify-between items-center">
+      <a href="/"><img src="src/images/brand-logo-dark.png" alt="logo" class="h-16"></a>
+      <div x-data="{ open: false, selectedLanguage: 'English' }" @click.outside="open = false" class="relative inline-block text-left">
+        <div>
+            <div @click="open = !open" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <span class="flex items-center">
+                    <img :src="selectedLanguage === 'English' ? 'src/images/flag-gb.svg' : selectedLanguage === 'Spanish' ? 'src/images/flag-es.svg' : selectedLanguage === 'French' ? 'src/images/flag-fr.svg' : selectedLanguage === 'German' ? 'src/images/flag-de.svg' : 'src/images/flag-gb.svg'" class="h-5 w-5 mr-2" alt="" />
+                    <span x-text="selectedLanguage"></span>
+                </span>
+          
+              </div>
+        </div>
+    
+        <div x-show="open" class="absolute z-10 w-full mt-2 rounded-md bg-white ring-1 ring-black ring-opacity-5 max-h-28 overflow-y-scroll shadow-md" style="display: none;">
+            <div class="py-1">
+                <template x-for="language in ['English', 'Spanish', 'French', 'German', 'Italian']" :key="language">
+                    <div @click="selectedLanguage = language; open = false" class="flex items-center w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 focus:outline-none">
+                        <img :src="language === 'English' ? 'src/images/flag-gb.svg' : language === 'Spanish' ? 'src/images/flag-es.svg' : language === 'French' ? 'src/images/flag-fr.svg' : language === 'German' ? 'src/images/flag-de.svg' : 'src/images/flag-it.svg'" class="h-5 w-5 mr-2 " alt="" />
+                        <span x-text="language"></span>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+   </header>
+
+<section class="intro py-10 md:py-12 lg:py-14">
+  <div class="container m-auto px-4 md:px-0 lg:px-0">
+    <h1 class="text-center text-black font-light text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-6 lg:mb-10">Lorem ipsum dolor sit amet</h1>
+    <p class="text-base md:text-lg lg:text-lg text-center mb-8 md:w-4/5 lg:w-4/5 mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod. </p>
+  <div class="row flex gap-4 justify-stretch flex-wrap">
+    <div class="flex-auto md:flex-1 lg:flex-1 w-full border border-blue-500 p-6 text-center bg-blue-50 rounded-md">
+      <img src="src/icons/building-library.svg" class="h-16 mx-auto mb-4">
+      <h2 class="text-gray-800 text-2xl md:text-3xl lg:text-4xl mb-6">Lorem ipsum dolor</h2>
+      <p class="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod. </p>
+
+    </div>
+    <div class="flex-auto md:flex-1 lg:flex-1 w-full border border-blue-500 p-6 text-center bg-blue-50 rounded-md">
+      <img src="src/icons/building-office-2.svg" class="h-16 mx-auto mb-4">
+      <h2 class="text-gray-800 text-2xl md:text-3xl lg:text-4xl mb-6">Lorem ipsum dolor</h2>
+      <p class="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod. </p>
+
+    </div>
+    <div class="flex-auto md:flex-1 lg:flex-1 w-full border border-blue-500 p-6 text-center bg-blue-50 rounded-md">
+      <img src="src/icons/building-storefront.svg" class="h-16 mx-auto mb-4">
+      <h2 class="text-gray-800 text-2xl md:text-3xl lg:text-4xl mb-6">Lorem ipsum dolor</h2>
+      <p class="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod. </p>
+
+    </div>
+  </div>
+  </section>
+
+  <section class="faq bg-gray-50 py-10 md:py-12 lg:py-14">
+    <div class="container m-auto px-4 md:px-0 lg:px-0">
+        <h2 class="text-center text-black text-2xl md:text-3xl lg:text-4xl mb-10">Frequently Asked Questions</h2>
+        <div x-data="{ open: null }" @click.away="open = null" class="space-y-4 md:w-4/5 lg:w-4/5 mx-auto">
+            <div class="border rounded-lg">
+                <div @click="open === 1 ? open = null : open = 1" class="flex justify-between w-full p-4 text-left text-gray-700 bg-white rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <h3 class="text-blue-500 font-light text-xl md:text-2xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing</h3>
+                    <span class="text-gray-700 text-lg transition-transform duration-200" 
+                        :class="{'transform rotate-45': open === 1, 'transform rotate-0': open !== 1}">
+                        +
+                    </span>
+                </div>
+                <div x-show="open === 1" class="border-t border-gray-200 p-6 bg-white rounded-b-lg">
+                    <p>Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod.</p>
+                </div>
+            </div>
+            
+            <div class="border rounded-lg">
+                <div @click="open === 2 ? open = null : open = 2" class="flex justify-between w-full p-4 text-left text-gray-700 bg-white rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <h3 class="text-blue-500 font-light text-xl md:text-2xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur elit</h3>
+                    <span class="text-gray-700 text-lg transition-transform duration-200" 
+                        :class="{'transform rotate-45': open === 2, 'transform rotate-0': open !== 2}">
+                        +
+                    </span>
+                </div>
+                <div x-show="open === 2" class="border-t border-gray-200 p-6 bg-white rounded-b-lg">
+                    <p>Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod.</p>
+                </div>
+            </div>
+            
+            <div class="border rounded-lg">
+                <div @click="open === 3 ? open = null : open = 3" class="flex justify-between w-full p-4 text-left text-gray-700 bg-white rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <h3 class="text-blue-500 font-light text-xl md:text-2xl lg:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing</h3>
+                    <span class="text-gray-700 text-lg transition-transform duration-200" 
+                        :class="{'transform rotate-45': open === 3, 'transform rotate-0': open !== 3}">
+                        +
+                    </span>
+                </div>
+                <div x-show="open === 3" class="border-t border-gray-200 p-6 bg-white rounded-b-lg">
+                    <p>Etiam vel eros finibus, condimentum justo eu, euismod justo. Curabitur malesuada vestibulum velit quis euismod.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class=" bg-black py-6">
+  <div class="container m-auto px-4 md:px-0 lg:px-0">
+    <p class="text-gray-300 text-center mb-4 font-light">Copyright 2024.</p> 
+    <a href="/"><img src="src/images/brand-logo.png" alt="logo" class="h-16 m-auto"></a> 
+
+    </div>
+    </footer>
+
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
