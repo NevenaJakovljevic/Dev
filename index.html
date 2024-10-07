@@ -11,9 +11,9 @@
     <div class="container m-auto px-4 md:px-0 lg:px-0">
       <div class="row  flex justify-between items-center">
       <a href="/"><img src="src/images/brand-logo-dark.png" alt="logo" class="h-16"></a>
-      <div x-data="{ open: false, selectedLanguage: 'English' }" @click.outside="open = false" class="relative inline-block text-left">
+      <div x-data="{ open: false, selectedLanguage: 'English' }" @click.outside="open = false" class="relative inline-block text-left cursor-pointer">
         <div>
-            <div @click="open = !open" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <div @click="open = !open" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
                 <span class="flex items-center">
                     <img :src="selectedLanguage === 'English' ? 'src/images/flag-gb.svg' : selectedLanguage === 'Spanish' ? 'src/images/flag-es.svg' : selectedLanguage === 'French' ? 'src/images/flag-fr.svg' : selectedLanguage === 'German' ? 'src/images/flag-de.svg' : 'src/images/flag-gb.svg'" class="h-5 w-5 mr-2" alt="" />
                     <span x-text="selectedLanguage"></span>
