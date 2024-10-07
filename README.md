@@ -17,6 +17,7 @@ for example: cd ~/Downloads/Dev-main
 Make sure you're in the project directory. Then, install the required dependencies by running:
 
 npm install
+
 This command will install all the Node.js packages required by the project (including Tailwind CSS).
 
 
